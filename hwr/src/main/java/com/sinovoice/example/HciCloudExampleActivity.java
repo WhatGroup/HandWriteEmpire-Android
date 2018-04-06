@@ -1,16 +1,18 @@
 package com.sinovoice.example;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.sinovoice.hcicloudsdk.api.HciCloudSys;
 import com.sinovoice.hcicloudsdk.common.AuthExpireTime;
 import com.sinovoice.hcicloudsdk.common.HciErrorCode;
 import com.sinovoice.hcicloudsdk.common.InitParam;
+import com.unity3d.player.UnityPlayerActivity;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -21,7 +23,7 @@ import java.util.Locale;
 /**
  * @author sinovoice
  */
-public class HciCloudExampleActivity extends Activity {
+public class HciCloudExampleActivity extends UnityPlayerActivity {
   private static final String TAG = "HciCloudExampleActivity";
 
   /**
@@ -31,6 +33,8 @@ public class HciCloudExampleActivity extends Activity {
   private PaintView mPaintView;
   private Button hwrBtn;
   private TextView mResultView;
+  private LinearLayout hwrModule;
+  private FrameLayout unityScene;
 
   /**
    * 加载用户信息工具类
@@ -42,6 +46,11 @@ public class HciCloudExampleActivity extends Activity {
 
     setContentView( R.layout.main );
 
+    unityScene = findViewById( R.id.unity_scene );
+    unityScene.addView( mUnityPlayer );
+
+    hwrModule = findViewById( R.id.hwr_module );
+
     // 初始化属性
     mLogView = findViewById( R.id.logview );
     mResultView = findViewById( R.id.result_text );
@@ -50,7 +59,7 @@ public class HciCloudExampleActivity extends Activity {
     //   mPaintView.setColor( 0x00ff0000 );
 
     mAccountInfo = AccountInfo.getInstance();
-    boolean loadResult = mAccountInfo.loadAccountInfo( this );
+    boolean loadResult = mAccountInfo.loadAccountInfo(  this );
     if (loadResult) {
       // 加载信息成功进入主界面
       //mLogView.setText( "加载灵云账号成功" );
@@ -103,6 +112,14 @@ public class HciCloudExampleActivity extends Activity {
     }
     HciCloudFuncHelper.Func( this, mAccountInfo.getCapKey(), mLogView, ss );
     return;*/
+  }
+
+  public void showHWRModule() {
+    runOnUiThread( new Runnable() {
+      @Override public void run() {
+        hwrModule.setVisibility( View.VISIBLE );
+      }
+    } );
   }
 
   private void hwrFunc() {

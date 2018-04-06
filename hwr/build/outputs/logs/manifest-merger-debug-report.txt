@@ -75,7 +75,7 @@ ADDED from F:\AS\project\ChineseCharacter\hwr\src\main\AndroidManifest.xml:11:3-
 	android:name
 		ADDED from F:\AS\project\ChineseCharacter\hwr\src\main\AndroidManifest.xml:11:20-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from F:\AS\project\ChineseCharacter\hwr\src\main\AndroidManifest.xml:12:3-95
+ADDED from F:\AS\project\ChineseCharacter\hwr\src\main\AndroidManifest.xml:12:3-78
 	android:name
 		ADDED from F:\AS\project\ChineseCharacter\hwr\src\main\AndroidManifest.xml:12:20-76
 uses-permission#android.permission.ACCESS_NETWORK_STATE
