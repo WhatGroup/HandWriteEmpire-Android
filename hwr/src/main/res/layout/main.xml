@@ -9,7 +9,6 @@
       android:layout_height="match_parent"
       />
   <LinearLayout
-      android:visibility="invisible"
       android:id="@+id/hwr_module"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -30,13 +29,13 @@
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:text="@string/hcicloudttsexample"
-          android:textColor="#000"
           />
     </ScrollView>
     <TextView
         android:id="@+id/result_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#000"
         />
     <com.sinovoice.example.PaintView
         android:id="@+id/paint_view"

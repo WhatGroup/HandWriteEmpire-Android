@@ -12,6 +12,7 @@ import com.sinovoice.hcicloudsdk.api.HciCloudSys;
 import com.sinovoice.hcicloudsdk.common.AuthExpireTime;
 import com.sinovoice.hcicloudsdk.common.HciErrorCode;
 import com.sinovoice.hcicloudsdk.common.InitParam;
+import com.unity3d.player.UnityPlayer;
 import com.unity3d.player.UnityPlayerActivity;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -47,9 +48,9 @@ public class HciCloudExampleActivity extends UnityPlayerActivity {
     setContentView( R.layout.main );
 
     unityScene = findViewById( R.id.unity_scene );
-    unityScene.addView( mUnityPlayer );
-
     hwrModule = findViewById( R.id.hwr_module );
+    unityScene.addView( mUnityPlayer );
+    hwrModule.setVisibility( View.INVISIBLE );
 
     // 初始化属性
     mLogView = findViewById( R.id.logview );
@@ -59,7 +60,7 @@ public class HciCloudExampleActivity extends UnityPlayerActivity {
     //   mPaintView.setColor( 0x00ff0000 );
 
     mAccountInfo = AccountInfo.getInstance();
-    boolean loadResult = mAccountInfo.loadAccountInfo(  this );
+    boolean loadResult = mAccountInfo.loadAccountInfo( this );
     if (loadResult) {
       // 加载信息成功进入主界面
       //mLogView.setText( "加载灵云账号成功" );
@@ -112,12 +113,35 @@ public class HciCloudExampleActivity extends UnityPlayerActivity {
     }
     HciCloudFuncHelper.Func( this, mAccountInfo.getCapKey(), mLogView, ss );
     return;*/
+/*    short s[] = new short[] {
+        287, 307, 287, 325, 288, 354, 293, 392, 298, 423, 301, 442, 304, 449, -1, 0, 417, 140, 409,
+        171, 403, 226, 399, 301, 394, 384, 392, 462, 389, 531, 387, 584, 385, 625, 384, 649, -1, 0,
+        429, 470, 439, 479, 460, 501, 488, 530, 514, 552, -1, 0, 759, 77, 733, 96, 690, 138, 651,
+        187, 615, 230, 583, 270, 562, 296, 550, 314, 548, 324, 553, 326, 570, 325, 613, 316, 664,
+        297, 715, 270, 732, 261, -1, 0, 761, 195, 758, 221, 759, 245, 763, 269, 767, 292, 764, 323,
+        -1, 0, 511, 451, 518, 439, 562, 418, 640, 389, 723, 365, 790, 348, 828, 339, 851, 331, 859,
+        328, 860, 329, -1, 0, 685, 334, 676, 346, 653, 380, 613, 429, 564, 469, 523, 501, -1, 0,
+        578, 450, 597, 435, 629, 418, 665, 407, 708, 402, 745, 404, 783, 408, 801, 412, -1, 0, 737,
+        490, 730, 490, 712, 500, 682, 522, 641, 556, 621, 576, 610, 593, 610, 594, -1, 0, 802, 516,
+        781, 532, 739, 565, 697, 603, 663, 637, 658, 643, -1, 0, 829, 608, 820, 613, 768, 655, 664,
+        743, 643, 762, -1, 0, -1, -1
+    };
+
+    HciCloudFuncHelper.Func( this, mAccountInfo.getCapKey(), mLogView, mResultView, s );*/
   }
 
   public void showHWRModule() {
     runOnUiThread( new Runnable() {
       @Override public void run() {
         hwrModule.setVisibility( View.VISIBLE );
+      }
+    } );
+  }
+
+  public void hideHWRModule() {
+    runOnUiThread( new Runnable() {
+      @Override public void run() {
+        hwrModule.setVisibility( View.INVISIBLE );
       }
     } );
   }
@@ -141,6 +165,8 @@ public class HciCloudExampleActivity extends UnityPlayerActivity {
         Log.d( "HciCloudExampleShow", Arrays.toString( ss ) );
         HciCloudFuncHelper.Func( HciCloudExampleActivity.this, mAccountInfo.getCapKey(), mLogView,
             mResultView, ss );
+        String str = mResultView.getText().toString();
+        UnityPlayer.UnitySendMessage( "Scripts", "ShowEffect", str.substring( str.length() - 2 ) );
       }
     } );
   }

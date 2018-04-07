@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/hwr" />
+            <option value="$PROJECT_DIR$/hwrlib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

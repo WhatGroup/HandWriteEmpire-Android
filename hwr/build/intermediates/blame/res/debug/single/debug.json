@@ -408,12 +408,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0ee01afd0c509316552b2a75a94d1127\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
-        "merged": "F:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
-        "source": "F:\\AS\\project\\ChineseCharacter\\hwr\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
-    },
-    {
         "merged": "F:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_go_search_api_material.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0ee01afd0c509316552b2a75a94d1127\\res\\drawable\\abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "F:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "F:\\AS\\project\\ChineseCharacter\\hwr\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
     },
     {
         "merged": "F:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
