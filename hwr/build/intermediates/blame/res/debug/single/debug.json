@@ -600,6 +600,10 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\6eba87cb1682467762ab9bf60529ed96\\res\\layout\\notification_template_icon_group.xml"
     },
     {
+        "merged": "F:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\res\\merged\\debug\\layout_activity_second.xml.flat",
+        "source": "F:\\AS\\project\\ChineseCharacter\\hwr\\src\\main\\res\\layout\\activity_second.xml"
+    },
+    {
         "merged": "F:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0ee01afd0c509316552b2a75a94d1127\\res\\drawable-mdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
@@ -1102,6 +1106,10 @@
     {
         "merged": "F:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_background_transition_holo_dark.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0ee01afd0c509316552b2a75a94d1127\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "F:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\res\\merged\\debug\\layout_paint_broad.xml.flat",
+        "source": "F:\\AS\\project\\ChineseCharacter\\hwr\\src\\main\\res\\layout\\paint_broad.xml"
     },
     {
         "merged": "F:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_background_transition_holo_light.xml.flat",

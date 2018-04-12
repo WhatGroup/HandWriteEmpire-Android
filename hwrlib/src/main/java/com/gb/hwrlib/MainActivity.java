@@ -3,6 +3,8 @@ package com.gb.hwrlib;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import com.sinovoice.hcicloudsdk.api.HciCloudSys;
 import com.sinovoice.hcicloudsdk.common.AuthExpireTime;
 import com.sinovoice.hcicloudsdk.common.HciErrorCode;
@@ -12,15 +14,19 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends UnityPlayerActivity {
 
   private static final String TAG = "AndroidLogCat";
   private AccountInfo mAccountInfo;
+  private PaintView mPaintView;
+  private View mPaintBroad;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate( savedInstanceState );
+    initPaint();
     mAccountInfo = AccountInfo.getInstance();
     boolean loadResult = mAccountInfo.loadAccountInfo( this );
     if (loadResult) {
@@ -57,9 +63,46 @@ public class MainActivity extends UnityPlayerActivity {
     }
   }
 
-  public String hwrRec(short[] s) {
-    Log.d( TAG, Arrays.toString( s ) );
-    return HciCloudFuncHelper.Func( this, mAccountInfo.getCapKey(), s );
+  private void initPaint() {
+    mPaintBroad = LayoutInflater.from( this ).inflate( R.layout.paint_broad, null );
+    mPaintView = mPaintBroad.findViewById( R.id.pain_view );
+    mPaintView.setBgColor( 0x00ffffff );
+    mPaintView.setStrokeWidth( 10 );
+  }
+
+  public void addHandWriteBroad() {
+    runOnUiThread( new Runnable() {
+      @Override public void run() {
+        mUnityPlayer.addView( mPaintBroad );
+      }
+    } );
+  }
+
+  public void removeHandWriteBroad() {
+    runOnUiThread( new Runnable() {
+      @Override public void run() {
+        mUnityPlayer.removeView( mPaintBroad );
+      }
+    } );
+  }
+
+  public String hwrRec() {
+    List<Short> data = mPaintView.getPathData();
+    data.add( (short) -1 );
+    data.add( (short) -1 );
+
+    short[] ss = new short[data.size()];
+    for (int i = 0; i < data.size(); i++) {
+      ss[i] = data.get( i );
+    }
+    data.clear();
+    runOnUiThread( new Runnable() {
+      @Override public void run() {
+        mPaintView.clear();
+      }
+    } );
+    Log.d( "HciCloudExampleShow", Arrays.toString( ss ) );
+    return HciCloudFuncHelper.Func( this, mAccountInfo.getCapKey(), ss );
   }
 
   private InitParam getInitParam() {
