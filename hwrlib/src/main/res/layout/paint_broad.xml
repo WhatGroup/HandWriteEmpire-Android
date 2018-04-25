@@ -7,15 +7,28 @@
     >
   <Space
       android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="3"
+      android:layout_height="960px"
       android:background="#0fff"
       />
-  <com.gb.hwrlib.PaintView
-      android:id="@+id/pain_view"
+
+  <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="2"
-      />
+      android:layout_height="780px"
+      android:orientation="horizontal"
+      >
+    <Space
+        android:layout_width="135px"
+        android:layout_height="match_parent"
+        />
+    <com.gb.hwrlib.PaintView
+        android:id="@+id/pain_view"
+        android:layout_width="810px"
+        android:layout_height="match_parent"
+        />
+    <Space
+        android:layout_width="135px"
+        android:layout_height="match_parent"
+        />
+  </LinearLayout>
 
 </LinearLayout>

@@ -1,4 +1,0 @@
-#Wed Apr 11 20:46:47 CST 2018
-base.0=F\:\\AS\\project\\ChineseCharacter\\hwr\\build\\intermediates\\transforms\\dexMerger\\debug\\7
-path.0=classes.dex
-renamed.0=classes.dex
