@@ -9,6 +9,7 @@ import com.sinovoice.hcicloudsdk.api.HciCloudSys;
 import com.sinovoice.hcicloudsdk.common.AuthExpireTime;
 import com.sinovoice.hcicloudsdk.common.HciErrorCode;
 import com.sinovoice.hcicloudsdk.common.InitParam;
+import com.unity3d.player.UnityPlayer;
 import com.unity3d.player.UnityPlayerActivity;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -86,23 +87,28 @@ public class MainActivity extends UnityPlayerActivity {
     } );
   }
 
-  public String hwrRec() {
-    List<Short> data = mPaintView.getPathData();
-    data.add( (short) -1 );
-    data.add( (short) -1 );
-
-    short[] ss = new short[data.size()];
-    for (int i = 0; i < data.size(); i++) {
-      ss[i] = data.get( i );
-    }
-    data.clear();
-    runOnUiThread( new Runnable() {
+  public void hwrRec() {
+    new Thread( new Runnable() {
       @Override public void run() {
-        mPaintView.clear();
+        List<Short> data = mPaintView.getPathData();
+        data.add( (short) -1 );
+        data.add( (short) -1 );
+
+        short[] ss = new short[data.size()];
+        for (int i = 0; i < data.size(); i++) {
+          ss[i] = data.get( i );
+        }
+        data.clear();
+        runOnUiThread( new Runnable() {
+          @Override public void run() {
+            mPaintView.clear();
+          }
+        } );
+        Log.d( "HciCloudExampleShow", Arrays.toString( ss ) );
+        String results = HciCloudFuncHelper.Func( MainActivity.this, mAccountInfo.getCapKey(), ss );
+        UnityPlayer.UnitySendMessage( "Scripts", "OnGetRecResult", results );
       }
-    } );
-    Log.d( "HciCloudExampleShow", Arrays.toString( ss ) );
-    return HciCloudFuncHelper.Func( this, mAccountInfo.getCapKey(), ss );
+    } ).start();
   }
 
   private InitParam getInitParam() {
