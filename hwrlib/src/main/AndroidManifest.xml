@@ -3,15 +3,6 @@
     package="com.gb.hwrlib">
 
 
-  <uses-sdk
-      android:minSdkVersion="7"
-      android:targetSdkVersion="14" />
-
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
   <application>
     <activity android:name=".MainActivity">
       <intent-filter>
@@ -19,7 +10,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
       <meta-data
-          android:name="unityplaer.UnityActivity"
+          android:name="unityplayer.UnityActivity"
           android:value="true" />
     </activity>
   </application>
