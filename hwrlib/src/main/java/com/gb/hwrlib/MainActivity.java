@@ -101,7 +101,7 @@ public class MainActivity extends UnityPlayerActivity {
         data.clear();
         runOnUiThread( new Runnable() {
           @Override public void run() {
-            mPaintView.clear();
+            clearPaint();
           }
         } );
         Log.d( "HciCloudExampleShow", Arrays.toString( ss ) );
@@ -109,6 +109,10 @@ public class MainActivity extends UnityPlayerActivity {
         UnityPlayer.UnitySendMessage( "Scripts", "OnGetRecResult", results );
       }
     } ).start();
+  }
+
+  public void clearPaint() {
+    mPaintView.clear();
   }
 
   private InitParam getInitParam() {
